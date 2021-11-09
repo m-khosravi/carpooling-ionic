@@ -31,7 +31,7 @@ import { BarRatingModule } from "ngx-bar-rating";
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: NESHAN_API_KEY, useValue: 'service.oMk7yFK2vf1WpmZjimlAsUpGi140jbZIYjQwYAzu' }
+    { provide: NESHAN_API_KEY, useValue: 'YOUR-NESHAN-DEVELOPER-KEY' }
   ],
   bootstrap: [AppComponent]
 })
