@@ -1,0 +1,16 @@
+.map {
+  width: 100%;
+  height: 300px;
+}
+ion-auto-complete {
+  width: 80%;
+  ul {
+    width: auto !important;
+    max-width: 100% !important;
+    left: auto !important;
+    right: 16px !important;
+  }
+}
+#autocomp ul{
+    width: auto;
+}

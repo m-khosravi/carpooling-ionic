@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-header color="light" class="ion-padding">
+    <ion-card-subtitle>مدل {{car.year}}</ion-card-subtitle>
+    <ion-card-title>{{car.title}}</ion-card-title>
+    <ion-icon [src]="car.company.logo"></ion-icon>
+  </ion-card-header>
+  <ion-card-content class="ion-hide">
+    
+  </ion-card-content>
+  <ion-footer>
+    <ion-buttons>
+      <ion-chip [color]="ft.color" *ngFor="let ft of car.features">
+        <ion-icon *ngIf="ft.icon" name="{{ft.icon}}"></ion-icon>
+        <ion-label *ngIf="ft.value">{{ft.value}}</ion-label>
+      </ion-chip>
+    </ion-buttons>
+  </ion-footer>
+</ion-card>

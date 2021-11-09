@@ -1,0 +1,151 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="large">
+      <ion-icon style="font-size: 30px;" src="./assets/icon/carshare.svg"></ion-icon>
+      <ion-text class="logo">هَمرو...</ion-text> <small>سرویس اشتراک ماشین</small>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/dash']">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        ناحیه کاربری
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div parallax class="page page1">
+    <div class="container">
+      <div class="box" style="display: none;">
+        <ion-icon style="font-size: 200px;" src="./assets/icon/carshare.svg"></ion-icon>
+        <h1 class="logo-con"><span class="logo">ماشین کمتر...</span> <span class="logo2">تهران زیباتر...</span></h1>
+      </div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12" size-lg="6">
+            <ion-card button (click)="scrollTo('page2')">
+              <ion-card-header>
+                <ion-icon name="search"></ion-icon>
+                <ion-card-subtitle>ماشین نداری و میخوای بری جایی؟</ion-card-subtitle>
+                <ion-card-title>سواری پیدا کن</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                مبدا و مقصدت رو مشخص کن و ببین کسی هست که با هم برید یا درخواستت رو ثبت کن تا اگه کسی ماشین داشت ما بهت
+                خبر بدیم
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-lg="6">
+            <ion-card button (click)="scrollTo('page2')">
+              <ion-card-header>
+                <ion-icon name="add-circle-outline"></ion-icon>
+                <ion-card-subtitle>ماشین داری دنبال هم صحبت میگردی؟</ion-card-subtitle>
+                <ion-card-title>سواری پیشنهاد کن</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                اکه یه مسیری رو هر روز با ماشینت میری و ماشینت خالیه مسیرت رو اینجا ثبت کن تا ما چنتا هم مسیر بهت معرفی
+                کنیم :)
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" style="display: none;">
+            <ion-card button>
+              <ion-card-header>
+                <ion-icon name="help"></ion-icon>
+                <ion-card-subtitle>معرفی طرح</ion-card-subtitle>
+                <ion-card-title></ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                اکه یه مسیری رو هر روز با ماشینت میری و ماشینت خالیه مسیرت رو اینجا ثبت کن تا ما چنتا هم مسیر بهت معرفی
+                کنیم :)
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div id="page2" class="page page2">
+    <div class="container">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12" style="text-align: center;">
+            <h1>همرو پیدا کن برا خودت</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-searchbar mode="md" [placeholder]="'جستجو'" animated showCancelButton="focus"></ion-searchbar>
+          </ion-col>
+        </ion-row>
+        <ion-row style="display: none;">
+          <ion-col size="12" size-lg="6">
+            <ion-card>
+              <ion-list>
+                <ion-list-header>
+                  <ion-label>ماشین دارا</ion-label>
+                  <ion-button>نمایش همه</ion-button>
+                </ion-list-header>
+                <ion-item button *ngFor="let item of [1,2,3,4,5]">
+                  <ion-avatar slot="start">
+                    <ion-icon style="font-size: 50px;" name="person-circle-outline"></ion-icon>
+                  </ion-avatar>
+                  <ion-label>
+                    <h2>همسفر تستی{{item}}</h2>
+                    <h3>مسیر: تهرانپاس به ونک</h3>
+                    <p>زمان رفت: 7 صبح زمان برگشت 5:30 بعد از ظهر</p>
+                    <ion-chip color="primary" mode="ios" outline="true">
+                      <ion-icon name="people"></ion-icon>
+                      <ion-label>1 نفر</ion-label>
+                    </ion-chip>
+                    <ion-chip color="primary" mode="ios" outline="true">
+                      <ion-icon name="swap-horizontal"></ion-icon>
+                      <ion-label>رفت و برگشت</ion-label>
+                    </ion-chip>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-lg="6">
+            <ion-card>
+              <ion-list>
+                <ion-list-header>
+                  <ion-label>ماشین ندارا</ion-label>
+                  <ion-button>نمایش همه</ion-button>
+                </ion-list-header>
+                <ion-item button *ngFor="let item of hamros">
+                  <ion-avatar slot="start">
+                    <ion-icon style="font-size: 50px;" name="person-circle-outline"></ion-icon>
+                  </ion-avatar>
+                  <ion-label>
+                    <h2>مسیر: {{item.origin}} به {{item.destination}}</h2>
+                    <h3>{{item.title}}</h3>
+                    <p>زمان رفت: 7 صبح زمان برگشت 5:30 بعد از ظهر</p>
+                    <div>
+                      <span *ngFor="let sft of item.features">
+                        <ion-chip *ngFor="let ft of sft" [color]="ft.color" mode="md" outline="true">
+                          <ion-icon name="{{ft.icon}}"></ion-icon>
+                          <ion-label>{{ft.value}}</ion-label>
+                        </ion-chip>
+                      </span>
+                    </div>
+                  </ion-label>
+
+                </ion-item>
+              </ion-list>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" size-sm="12" size-md="6" size-lg="4" *ngFor="let item of hamros">
+            <app-card [routerLink]="['/detail']" routerLinkActive="router-link-active" [item]="item"></app-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

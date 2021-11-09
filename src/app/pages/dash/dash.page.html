@@ -1,0 +1,42 @@
+<ion-split-pane contentId="menu-content" when="xxl">
+  <ion-menu type="reveal" contentId="menu-content" menuId="menuId" class="my-custom-menu" side="start">
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-title size="large">
+          <ion-icon style="font-size: 30px;" src="./assets/icon/carshare.svg"></ion-icon>
+          <ion-text class="logo">هَمرو...</ion-text> <small>سرویس اشتراک ماشین</small>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+
+          <ion-item *ngFor="let item of menuPages" [routerDirection]="'root'" [routerLink]="item.url"
+            [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ replceUrl: true }">
+            <ion-icon slot="start" [name]="item.icon"></ion-icon>
+            <ion-label>
+              {{item.title}}
+            </ion-label>
+            <ion-list *ngIf="item.subMenu">
+              <ion-item *ngFor="let sub of item.subMenu" [routerDirection]="'root'" [routerLink]="item.url"
+                [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ replceUrl: true }">
+                <ion-icon slot="start" [name]="item.icon"></ion-icon>
+                <ion-label>
+                  {{item.title}}
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+          <ion-item button>
+            <ion-icon slot="start" name="exit"></ion-icon>
+            <ion-label>
+              خروج
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="menu-content"></ion-router-outlet>
+</ion-split-pane>

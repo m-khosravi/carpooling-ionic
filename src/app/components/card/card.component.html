@@ -1,0 +1,32 @@
+<ion-card button>
+  <ion-card-header color="light">
+    <div class="time-keeper">
+      <ul class="ion-no-padding ion-no-margin">
+        <li>
+          <ion-text color="medium" siz class="goTime"><strong>08:00 از {{item.origin}}</strong></ion-text>
+        </li>
+        <li>
+          <ion-text color="primary" class="arriveTime"><strong>09:00 به {{item.destination}}</strong></ion-text>
+        </li>
+      </ul>
+      <ion-icon src="./assets/icon/destination.svg"></ion-icon>
+    </div>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="./assets/img/pr.jpg" />
+        </ion-avatar>
+        <ion-label size="small">{{item.title}}</ion-label>
+        <ion-badge [color]="item.level.color" mode="md"><small>{{item.level.value}}</small></ion-badge>
+      </ion-item>
+      <ion-item *ngFor="let ft of item.features">
+        <ion-chip *ngFor="let sft of ft" color="{{sft.color}}" mode="md" outline="true">
+          <ion-icon *ngIf="sft.icon" name="{{sft.icon}}"></ion-icon>
+          <ion-label *ngIf="sft.value">{{sft.value}}</ion-label>
+        </ion-chip>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

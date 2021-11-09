@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-card-header color="light">
+    <div class="time-keeper">
+      <ul class="ion-no-padding ion-no-margin">
+        <li>
+          <ion-text color="medium" siz class="goTime"><strong>{{item.start}} از {{item.origin}}</strong></ion-text>
+        </li>
+        <li>
+          <ion-text color="primary" class="arriveTime"><strong>{{item.end}} به {{item.destination}}</strong></ion-text>
+        </li>
+      </ul>
+      <ion-icon src="./assets/icon/destination.svg"></ion-icon>
+    </div>
+  </ion-card-header>
+  <ion-card-content>
+   <ion-chip color="primary" color="{{day==='ج'? 'primary': 'success'}}" mode="md" *ngFor="let day of item.tripdays">
+     <ion-label>{{day}}</ion-label>
+   </ion-chip>
+  </ion-card-content>
+</ion-card>

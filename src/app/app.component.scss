@@ -1,0 +1,18 @@
+.logo-con {
+    .logo,
+    .logo2 {
+      text-shadow: #000000 1px 1px 5px;
+      color: var(--ion-color-tertiary);
+      font-size: larger;
+      font-style: italic;
+      font-weight: 900;
+    }
+    .logo2 {
+      color: var(--ion-color-success);
+    }
+  
+    small {
+      font-size: small;
+      color: var(--ion-color-light);
+    }
+  }

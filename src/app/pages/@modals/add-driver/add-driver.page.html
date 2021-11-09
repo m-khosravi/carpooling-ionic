@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row class="ion-padding">
+      <ion-col class="label">
+        مبدا
+      </ion-col>
+      <ion-col [size]="12">
+        <ion-auto-complete [multi]="false" [dataProvider]="locationProvider"
+          [options]="{debounce: 500, placeholder: 'جستجو'}" [clearInvalidInput]="true"></ion-auto-complete>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-padding">
+      <ion-col class="label">
+        مقصد
+      </ion-col>
+      <ion-col [size]="12">
+        <ion-auto-complete [multi]="false" [dataProvider]="locationProvider"
+          [options]="{debounce: 500, placeholder: 'جستجو'}" [clearInvalidInput]="true"></ion-auto-complete>
+      </ion-col>
+    </ion-row>
+    <ion-item-divider>
+      <ion-label>زمان بندی</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label position="floating">تاریخ</ion-label>
+      <ion-datetime [min]="'2020'" display-format="MMMM DD" doneText="تایید" cancelText="انصراف"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">ساعت</ion-label>
+      <ion-datetime display-format="HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>تکرار</ion-label>
+      <ion-toggle #repeating slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="repeating.checked">
+      <ion-label position="floating">روزهای تکرار</ion-label>
+      <ion-select multiple="true" cancelText="انصراف" okText="تایید">
+        <ion-select-option value="0">شنبه</ion-select-option>
+        <ion-select-option value="1">یکشنبه</ion-select-option>
+        <ion-select-option value="2">دوشنبه</ion-select-option>
+        <ion-select-option value="3">سه شنبه</ion-select-option>
+        <ion-select-option value="4">چهارشنبه</ion-select-option>
+        <ion-select-option value="5">پنجشنبه</ion-select-option>
+        <ion-select-option value="6">جمعه</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-button expand="full" >
+    ثبت
+  </ion-button>
+</ion-footer>
